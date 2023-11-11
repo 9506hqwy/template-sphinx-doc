@@ -35,3 +35,28 @@ numfig_secnum_depth = 0
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 html_style = 'css/styles.css'
+
+# -- Options for PDF output --------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
+
+latex_preamble = r'''
+% 透かしの設定
+\DraftwatermarkOptions{angle={0}}
+\DraftwatermarkOptions{scale={0.15}}
+\DraftwatermarkOptions{hpos={0.90\paperwidth}}
+\DraftwatermarkOptions{vpos={0.20\paperwidth}}
+\DraftwatermarkOptions{color={[rgb]{1, 0, 0}}}
+\DraftwatermarkOptions{text={%
+    \includegraphics{./../../images/maruhi_mark.png} \\ サンプル
+}}
+'''
+
+latex_extrapackages = r'''
+\usepackage{draftwatermark}
+'''
+
+latex_elements = {
+    'papersize': 'a4paper',
+    'preamble': latex_preamble,
+    'extrapackages': latex_extrapackages,
+}
