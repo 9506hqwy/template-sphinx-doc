@@ -76,6 +76,7 @@ latex_preamble = r'''
 latex_maketitle = r'''
 \makeatletter
 \begin{titlepage}
+    \ThisULCornerWallPaper{0.25}{./../../images/mark_network_status_benkyouchu.png}
     \vspace*{\fill}
     \begin{center}
         \py@HeaderFamily
@@ -93,6 +94,7 @@ latex_maketitle = r'''
 
 latex_extrapackages = r'''
 \usepackage{draftwatermark}
+\usepackage{wallpaper}
 '''
 
 latex_elements = {
