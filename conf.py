@@ -103,4 +103,5 @@ latex_elements = {
     'preamble': latex_preamble,
     'maketitle': latex_maketitle,
     'extrapackages': latex_extrapackages,
+    'extraclassoptions': 'openany',
 }
