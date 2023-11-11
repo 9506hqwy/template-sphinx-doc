@@ -39,6 +39,15 @@ html_style = 'css/styles.css'
 # -- Options for PDF output --------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
 
+latex_passoptionstopackages = rf'''
+\makeatletter
+\PassOptionsToPackage{{
+    pdftitle={{{project}}},
+    pdfauthor={{{author}}}
+}}{{hyperref}}
+\makeatother
+'''
+
 latex_preamble = r'''
 % 透かしの設定
 \DraftwatermarkOptions{angle={0}}
@@ -64,12 +73,32 @@ latex_preamble = r'''
 }
 '''
 
+latex_maketitle = r'''
+\makeatletter
+\begin{titlepage}
+    \vspace*{\fill}
+    \begin{center}
+        \py@HeaderFamily
+        {\Huge \@title \par}
+        {\itshape\LARGE \py@release\releaseinfo \par}
+    \end{center}
+    \vspace*{\fill}
+    \begin{flushright}
+        {\LARGE \@date \par \@author}
+    \end{flushright}
+    \vspace*{\baselineskip}
+\end{titlepage}
+\makeatother
+'''
+
 latex_extrapackages = r'''
 \usepackage{draftwatermark}
 '''
 
 latex_elements = {
     'papersize': 'a4paper',
+    'passoptionstopackages': latex_passoptionstopackages,
     'preamble': latex_preamble,
+    'maketitle': latex_maketitle,
     'extrapackages': latex_extrapackages,
 }
