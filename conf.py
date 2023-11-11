@@ -49,6 +49,19 @@ latex_preamble = r'''
 \DraftwatermarkOptions{text={%
     \includegraphics{./../../images/maruhi_mark.png} \\ サンプル
 }}
+
+% ヘッダとフッタを設定
+% FIXED ME: chapter の最初のページが変更できない。
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+
+\fancypagestyle{normal}{
+    \fancyhf{}
+    \fancyhead[LE]{\rightmark}
+    \fancyhead[RO]{\rightmark}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+}
 '''
 
 latex_extrapackages = r'''
