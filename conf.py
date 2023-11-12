@@ -92,6 +92,11 @@ latex_preamble = r'''
     \pagenumbering{arabic}
 }
 \makeatother
+
+% 目次にスタイルを適用
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{normal}}}
+\AtBeginDocument{\addtocontents{lof}{\protect\thispagestyle{normal}}}
+\AtBeginDocument{\addtocontents{lot}{\protect\thispagestyle{normal}}}
 '''
 
 latex_maketitle = r'''
