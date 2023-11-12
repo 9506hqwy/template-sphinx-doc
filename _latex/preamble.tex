@@ -9,7 +9,6 @@
 }}
 
 % ヘッダとフッタを設定
-% FIXED ME: chapter の最初のページが変更できない。
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
 
 \fancypagestyle{normal}{
@@ -20,6 +19,17 @@
   \renewcommand{\headrulewidth}{0.4pt}
   \renewcommand{\footrulewidth}{0.4pt}
 }
+
+% chapter の最初のページにスタイルを適用
+% https://github.com/texjporg/uplatex/blob/master/ujclasses.dtx#L2895
+% arg1: 対象のコマンド
+% arg2: 置換前のコード
+% arg3: 置換後のコード
+% arg4: デバック用
+% arg5: デバック用
+\makeatletter
+\patchcmd{\chapter}{\thispagestyle{jpl@in}}{\thispagestyle{normal}}{}{}
+\makeatother
 
 % 表目次と図目次を追加
 \makeatletter
