@@ -71,6 +71,27 @@ latex_preamble = r'''
     \renewcommand{\headrulewidth}{0.4pt}
     \renewcommand{\footrulewidth}{0.4pt}
 }
+
+% 表目次と図目次を追加
+\makeatletter
+\renewcommand{\sphinxtableofcontents}{
+    \pagenumbering{roman}
+    \begingroup
+        \parskip
+        \z@skip
+        \sphinxtableofcontentshook
+        \tableofcontents
+        \listoffigures
+        \listoftables
+    \endgroup
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+    \pagenumbering{arabic}
+}
+\makeatother
 '''
 
 latex_maketitle = r'''
