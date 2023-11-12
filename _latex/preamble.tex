@@ -1,0 +1,48 @@
+% 透かしの設定
+\DraftwatermarkOptions{angle={0}}
+\DraftwatermarkOptions{scale={0.15}}
+\DraftwatermarkOptions{hpos={0.90\paperwidth}}
+\DraftwatermarkOptions{vpos={0.20\paperwidth}}
+\DraftwatermarkOptions{color={[rgb]{1, 0, 0}}}
+\DraftwatermarkOptions{text={%
+  \includegraphics{./../../images/maruhi_mark.png} \\ サンプル
+}}
+
+% ヘッダとフッタを設定
+% FIXED ME: chapter の最初のページが変更できない。
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+
+\fancypagestyle{normal}{
+  \fancyhf{}
+  \fancyhead[LE]{\rightmark}
+  \fancyhead[RO]{\rightmark}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\footrulewidth}{0.4pt}
+}
+
+% 表目次と図目次を追加
+\makeatletter
+\renewcommand{\sphinxtableofcontents}{
+  \pagenumbering{roman}
+  \begingroup
+    \parskip
+    \z@skip
+    \sphinxtableofcontentshook
+    \tableofcontents
+    \listoffigures
+    \listoftables
+  \endgroup
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \pagenumbering{arabic}
+}
+\makeatother
+
+% 目次にスタイルを適用
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{normal}}}
+\AtBeginDocument{\addtocontents{lof}{\protect\thispagestyle{normal}}}
+\AtBeginDocument{\addtocontents{lot}{\protect\thispagestyle{normal}}}
