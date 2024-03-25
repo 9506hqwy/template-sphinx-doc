@@ -40,9 +40,8 @@ html_style = 'css/styles.css'
 # -- Options for PDF output --------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
 
-latex_passoptionstopackages = open('_latex/pass_options_to_packages.tex') \
-    .read() \
-    .format(project=project, author=author)
+latex_passoptionstopackages = \
+    open('_latex/pass_options_to_packages.tex').read()
 latex_preamble = open('_latex/preamble.tex').read()
 latex_maketitle = open('_latex/maketitle.tex').read()
 latex_extrapackages = open('_latex/extra_packages.tex').read()
