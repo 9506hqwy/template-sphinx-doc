@@ -10,6 +10,7 @@
    src/section
    src/graph_table
    src/link
+   src/reference
 
 ******************************************************************************
 Indices and tables
