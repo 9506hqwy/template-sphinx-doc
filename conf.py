@@ -42,7 +42,7 @@ html_style = 'css/styles.css'
 
 latex_passoptionstopackages = \
     open('_latex/pass_options_to_packages.tex').read()
-latex_preamble = open('_latex/preamble.tex').read()
+latex_preamble = open('_latex/preamble.tex', encoding='utf-8').read()
 latex_maketitle = open('_latex/maketitle.tex').read()
 latex_extrapackages = open('_latex/extra_packages.tex').read()
 
