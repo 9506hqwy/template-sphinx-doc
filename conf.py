@@ -19,6 +19,9 @@ extensions = [
 ]
 
 exclude_patterns = [
+    '.mypy_cache',
+    '.venv',
+    '.vscode',
     '_build',
     '_latex',
     '_script',
